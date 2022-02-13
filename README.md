@@ -1,9 +1,11 @@
-# notes
+# Notes
 
 ### Команды для Docker
 
-Развернуть Docker:  
+Развернуть Docker:
+
 `docker-compose up`
 
-Выполнить миграции: 
+Выполнить миграции:
+
 `docker-compose exec web python manage.py migrate`
