@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1 class=" card p-5 d-flex justify-content-center align-items-center text-center">
+            Добро пожаловать, {{ user }}!<br> У вас {{ count_notes }} записей!
+        </h1>
+    {% else %}
+        <h1 class="card p-5 d-flex justify-content-center align-items-center">NOTES</h1>
+    {% endif %}
+{% endblock %}

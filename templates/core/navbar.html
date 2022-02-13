@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand ms-5" href="{% url 'main' %} ">Главная</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        {% if user.is_authenticated %}
+            <div class="d-flex">
+                <a class="navbar-brand ms-5" href="{% url 'notes_list' %}">Список заметок</a>
+                <a class="navbar-brand ms-5" href="{% url 'add_notes' %}">Добавить заметку</a>
+            </div>
+        {% endif %}
+        <form class="d-flex me-5">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Выйти</a></li>
+                {% else %}
+                    <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link">Регистрация</a></li>
+                    <li class="nav-link disabled">|</li>
+                    <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Авторизация</a></li>
+                {% endif %}
+
+            </ul>
+        </form>
+
+    </div>
+</nav>
